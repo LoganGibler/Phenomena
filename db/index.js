@@ -1,5 +1,5 @@
 // Require the Client constructor from the pg package
-const { Client } = require("pg");
+const client = new Client(process.env.DATABASE_URL || 'postgres://localhost:5432/phenomena-dev');
 
 // Create a constant, CONNECTION_STRING, from either process.env.DATABASE_URL or postgres://localhost:5432/phenomena-dev
 
@@ -212,7 +212,7 @@ async function createReportComment(reportId, commentFields) {
         WHERE id=$1
         RETURNING *;
     `, [reportId]);
-    
+
     return comment
     
   } catch (error) {
