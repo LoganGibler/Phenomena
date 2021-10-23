@@ -95,6 +95,7 @@ describe('Database', () => {
       it('isExpired is true if the expirationDate is before now', async () => {
         expect(expiredReport.isExpired).toBe(true);
       });
+      
       it('individual report objects include the comments', async () => {
         expect(singleReport).toEqual(expect.objectContaining({
           comments: expect.any(Array),
